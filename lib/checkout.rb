@@ -5,6 +5,6 @@ class Checkout
   end
 
   def total(prices)
-    prices.reduce(:+)
+    @promo_rules ? "Discount!" : prices.reduce(:+)
   end
 end
