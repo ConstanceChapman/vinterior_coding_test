@@ -9,7 +9,7 @@ class Checkout
   def scan(item)
     @items[item.code] = @items[item.code] ? @items[item.code] + 1 : 1
     @prices << item.price
-    return @items
+    return [@items, @prices]
   end
 
   def total
