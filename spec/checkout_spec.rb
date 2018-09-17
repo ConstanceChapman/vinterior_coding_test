@@ -24,4 +24,10 @@ describe Checkout do
       expect(promo.class).to eql(PromotionalRules)
     end
   end
+
+  describe "total with promotional_rules" do
+    it "prices totalling £70 should give 10 percent discount" do
+      expect(checkout.total).to eql(63.0)
+    end
+  end
 end
