@@ -1,0 +1,2 @@
+describe Checkout do
+end
