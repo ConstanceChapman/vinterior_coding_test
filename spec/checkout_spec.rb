@@ -39,4 +39,12 @@ describe Checkout do
       expect(checkout.total).to eql(25.5)
     end
   end
+
+  describe "total with both promotional_rules" do
+    it "applying both promotions to £58.95" do
+      checkout.items = {item.code => 3}
+      checkout.prices = [9.25, 9.25, 9.25, 40]
+      expect(checkout.total).to eql(58.95)
+    end
+  end
 end
