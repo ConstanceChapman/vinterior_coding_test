@@ -14,8 +14,8 @@ describe Checkout do
   end
 
   describe "checkout scan" do
-    it "@prices should include item price" do
-      expect(checkout.scan(item)).to eql([9.25])
+    it "@items should include item and item count" do
+      expect(checkout.scan(item)).to eql({item => 1})
     end
   end
 

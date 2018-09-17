@@ -9,15 +9,11 @@ class Checkout
   end
 
   def scan(item)
-    @items[item.code] = item
+    @items[item] = @items[item] ? @items[item] + 1 : 1
     @prices << item.price
-    return @prices
+    return @items
   end
 
-  def total()
-    return @promo_rules ? "Discount!" : @prices.reduce(:+) if @prices
-    return 0
-  end
 end
 
 # TODO this afternoon
