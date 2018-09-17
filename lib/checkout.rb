@@ -15,11 +15,8 @@ class Checkout
   end
 
   def total()
-    if @prices.length > 0
-      @promo_rules ? "Discount!" : @prices.reduce(:+)
-    else
-      0
-    end
+    return @promo_rules ? "Discount!" : @prices.reduce(:+) if @prices
+    return 0
   end
 end
 

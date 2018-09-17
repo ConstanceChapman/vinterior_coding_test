@@ -25,7 +25,7 @@ describe Checkout do
   end
 
   describe "scan method" do
-    it "item should be added to @items hash" do
+    it "price should be added to prices array" do
       expect(co.scan(item)).to eql([10, 9.25])
     end
   end
