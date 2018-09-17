@@ -5,7 +5,7 @@ class Checkout
   def initialize(promo_rules)
     @promo_rules = promo_rules
     @items = {}
-    @prices = [10]
+    @prices = []
   end
 
   def scan(item)
