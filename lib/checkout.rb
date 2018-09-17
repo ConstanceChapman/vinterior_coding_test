@@ -1,3 +1,5 @@
+require 'item'
+
 class Checkout
   attr_accessor :items
   def initialize(promo_rules)
@@ -6,7 +8,7 @@ class Checkout
   end
 
   def scan(item)
-    @items[item[:code]] = item
+    @items[item.code] = item
     return @items
   end
 

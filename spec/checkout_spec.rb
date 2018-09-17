@@ -1,6 +1,8 @@
 require "checkout"
+require "item"
 
 describe Checkout do
+  let(:item) { Item.new("001", "chair", 9.25) }
   let(:co) { Checkout.new(true) }
   let(:ch) { Checkout.new(false)}
 
@@ -24,7 +26,7 @@ describe Checkout do
 
   describe "scan method" do
     it "item should be added to @items hash" do
-      expect(co.scan({code: 001, name: "chair", price: 9.25})).to eql({ 001 => {code: 001, name: "chair", price: 9.25}})
+      expect(co.scan(item)).to eql({ "001" => item })
     end
   end
 end
