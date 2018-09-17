@@ -5,11 +5,13 @@ class Checkout
   def initialize(promo_rules)
     @promo_rules = promo_rules
     @items = {}
+    @prices = []
   end
 
   def scan(item)
     @items[item.code] = item
-    return @items
+    @prices << item.price
+    return @prices
   end
 
   def total(prices)
