@@ -5,7 +5,7 @@ class Checkout
   def initialize(promo_rules)
     @promo_rules = promo_rules
     @items = {}
-    @prices = []
+    @prices = [10]
   end
 
   def scan(item)
@@ -14,8 +14,12 @@ class Checkout
     return @prices
   end
 
-  def total(prices)
-    @promo_rules ? "Discount!" : prices.reduce(:+)
+  def total()
+    if @prices.length > 0
+      @promo_rules ? "Discount!" : @prices.reduce(:+)
+    else
+      0
+    end
   end
 end
 
