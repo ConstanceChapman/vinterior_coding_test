@@ -15,7 +15,7 @@ describe Checkout do
 
   describe "checkout scan" do
     it "@items should include item and item count" do
-      expect(checkout.scan(item)).to eql({item => 1})
+      expect(checkout.scan(item)).to eql({item.code => 1})
     end
   end
 
@@ -25,9 +25,18 @@ describe Checkout do
     end
   end
 
-  describe "total with promotional_rules" do
+  describe "total with first promotional_rule" do
     it "prices totalling £70 should give 10 percent discount" do
+      checkout.prices = [20, 20, 30]
       expect(checkout.total).to eql(63.0)
+    end
+  end
+
+  describe "total with second promotional_rule" do
+    it "scanning three chairs, total should be £25.50" do
+      checkout.items = {item.code => 3}
+      checkout.prices = [9.25, 9.25, 9.25]
+      expect(checkout.total).to eql(25.5)
     end
   end
 end
