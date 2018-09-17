@@ -14,9 +14,7 @@ class Checkout
 
   def total
     basic_total = @prices.reduce(:+) ? @prices.reduce(:+) : 0
-    promo1_total = @promo_rules.promo1(basic_total, @items["001"])
-    promo2_total = @promo_rules.promo2(promo1_total)
-    return promo2_total
+    return @promo_rules.promo(basic_total, @items)
   end
 
 end
